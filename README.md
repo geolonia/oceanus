@@ -6,5 +6,6 @@
   * pyshp
   * numpy
 ## GeoJSONファイルのmbtiles変換
-tippecanoeにて、以下のように実施しました。
 tippecanoe -zg -o z0.mbtiles --drop-densest-as-needed z0.json
+## 表示URL
+https://labo.takamoto.biz/z0
