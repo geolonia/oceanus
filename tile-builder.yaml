@@ -1,0 +1,17 @@
+version: '1'
+basedir: /Users/takamotokeiji/data/Shape/NaturalEarth/
+z0:
+  layers:
+    - layer: water
+      classes :
+        - class: ocan
+          filename: 110m_physical/ne_110m_ocean.shp
+        - class: lake
+          filename: 110m_physical/ne_110m_lakes.shp
+    - layer: landcover
+      classes :
+        - class: ice
+          filename: 110m_physical/ne_110m_glaciated_areas.shp
+          subclass: glacier
+    - layer: boundary
+      filename: 110m_cultural/ne_110m_admin_0_boundary_lines_land.shp
