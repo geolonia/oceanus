@@ -1,4 +1,6 @@
 # tile-builder
+## ズームレベル
+ 現時点ではズームレベル０のみです。
 ## 現状のレイヤ名と元データ
 * water:110m_physical/ne_110m_ocean.shp
 * ocan:110m_physical/ne_110m_lakes.shp
