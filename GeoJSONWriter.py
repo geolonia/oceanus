@@ -89,12 +89,12 @@ class GeoJSONWriter:
         else:
             # 2つ目以降
             self.Properties+= ","
-        if type(inValue) is list:
-            # 文字列リスト
-            self.Properties+= "\"" + inName + "\""+":" + "\"" + "".join(inValue) + "\""
+        if type(inValue) is int:
+            # 数値項目
+            self.Properties+= "\"" + inName + "\"" + ":" + str(inValue)
         else:
             # 文字列項目
-            self.Properties+= "\"" + inName + "\""+":" + "\"" + str(inValue) + "\""
+            self.Properties+= "\"" + inName + "\"" + ":" + "\"" +  str(inValue) + "\""
 
     # tippecanoeプロパティの設定
     def setTippecanoe(self ,inValue):
@@ -131,18 +131,20 @@ if __name__ == '__main__':
         config = yaml.load(yml)
     # 基本情報の取得
     basedir = config['basedir']
-    z0layers = config['z0']['layers']
+    z0layers = config['z0']['layer']
 
     # z0(Zoomlevel=0)のレイヤ取得
     for layer in z0layers:
-        if 'classes' in layer:
+        if 'class' in layer:
             # layer and class
-            for clas in layer['classes']:
+            for clas in layer['class']:
                 shapes = shapefile.Reader(basedir+clas['filename'])
                 for shp in shapes:
                     gjWriter.setGeometry(shp.shape.shapeType ,shp.shape.points ,shp.shape.parts)
-                    gjWriter.setProperty("class" ,clas['class'])
-                    gjWriter.setTippecanoe(clas['class'])
+                    gjWriter.setProperty('class' ,clas['name'])
+                    if 'subclass' in clas:
+                        gjWriter.setProperty('subclass' ,clas['subclass'])
+                    gjWriter.setTippecanoe(layer['name'])
                     # GeoJSONファイルへの書き込み
                     gjWriter.Write()
                     # print(shp.shape.points)
@@ -152,8 +154,10 @@ if __name__ == '__main__':
             shapes = shapefile.Reader(basedir+layer['filename'])
             for shp in shapes:
                 gjWriter.setGeometry(shp.shape.shapeType ,shp.shape.points ,shp.shape.parts)
-                gjWriter.setProperty("class" ,layer['layer'])
-                gjWriter.setTippecanoe(layer['layer'])
+                gjWriter.setProperty('admin_level' ,2)
+                gjWriter.setProperty('disputed' ,0)
+                gjWriter.setProperty('maritime' ,0) 
+                gjWriter.setTippecanoe(layer['name'])
                 # GeoJSONファイルへの書き込み
                 gjWriter.Write()
             shapes.close()
