@@ -2,9 +2,9 @@
 ## ズームレベル
  現時点ではズームレベル０のみです。
 ## 現状のレイヤ名と元データ
-* water:110m_physical/ne_110m_ocean.shp
-* ocan:110m_physical/ne_110m_lakes.shp
-* landcover:110m_physical/ne_110m_glaciated_areas.shp
+* water:ne_110m_ocean.shp
+* ocan:ne_110m_lakes.shp
+* landcover:ne_110m_glaciated_areas.shp
 * boundary:ne_110m_admin_0_boundary_lines_land.shp
 ## Pythonのバージョンと追加モジュール
 * バージョン:3.9.0
