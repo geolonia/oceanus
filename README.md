@@ -1,6 +1,6 @@
 # tile-builder
 ## ズームレベル
- 現時点ではズームレベル０のみです。
+ ズームレベル7まで対応しています。
 ## 現状のレイヤ名と元データ
 * water:ne_110m_ocean.shp
 * ocan:ne_110m_lakes.shp
@@ -15,4 +15,4 @@
 ## GeoJSONファイルのmbtiles変換
 tippecanoe -zg -o z0.mbtiles --drop-densest-as-needed z0.json
 ## 表示URL
-https://labo.takamoto.biz/z0
+https://labo.takamoto.biz/z7
