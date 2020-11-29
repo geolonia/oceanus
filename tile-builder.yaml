@@ -1,17 +1,121 @@
-version: '1'
+version: 0.2
 basedir: /Users/takamotokeiji/data/Shape/NaturalEarth/
-z0:
-  layer:
-    - name: water
-      class:
-        - name: ocan
-          filename: 110m_physical/ne_110m_ocean.shp
-        - name: lake
-          filename: 110m_physical/ne_110m_lakes.shp
-    - name: landcover
-      class:
-        - name: ice
-          filename: 110m_physical/ne_110m_glaciated_areas.shp
-          subclass: glacier
-    - name: boundary
-      filename: 110m_cultural/ne_110m_admin_0_boundary_lines_land.shp
+layers:
+
+  - layer: landuse
+    file:
+    - name: 50m_cultural/ne_50m_urban_areas.shp
+      class: residential
+      minzoom: 4
+      maxzoom: 4
+    - name: 50m_cultural/ne_50m_urban_areas.shp
+      class: residential
+      minzoom: 5
+      maxzoom: 7
+
+  - layer: landcover
+    file:
+    - name: 110m_physical/ne_110m_glaciated_areas.shp
+      class: ice
+      subclass: glacier
+      minzoom: 0
+      maxzoom: 1
+    - name: 50m_physical/ne_50m_glaciated_areas.shp
+      class: ice
+      subclass: glacier
+      minzoom: 2
+      maxzoom: 4
+    - name: 50m_physical/ne_50m_antarctic_ice_shelves_polys.shp
+      class: ice
+      subclass: ice_shelf
+      minzoom: 2
+      maxzoom: 4
+    - name: 10m_physical/ne_10m_glaciated_areas.shp
+      class: ice
+      subclass: glacier
+      minzoom: 5
+      maxzoom: 7 #暫定
+    - name: 10m_physical/ne_10m_antarctic_ice_shelves_polys.shp
+      class: ice
+      subclass: ice_shelf
+      minzoom: 5
+      maxzoom: 7 #暫定
+
+  - layer: water
+    file:
+    - name: 110m_physical/ne_110m_ocean.shp
+      class: ocean
+      minzoom: 0
+      maxzoom: 7
+    - name: 110m_physical/ne_110m_lakes.shp
+      class: lakes
+      minzoom: 0
+      maxzoom: 1
+    - name: 50m_physical/ne_50m_ocean.shp
+      class: ocean
+      minzoom: 2
+      maxzoom: 7  #暫定
+    - name: 50m_physical/ne_50m_lakes.shp
+      class: lakes
+      minzoom: 2
+      maxzoom: 4  #暫定
+    # - name: 10m_physical/ne_10m_ocean.shp
+    #   class: ocean
+    #   minzoom: 4
+    #   maxzoom: 5
+    - name: 10m_physical/ne_10m_lakes.shp
+      class: lakes
+      minzoom: 4
+      maxzoom: 7 # 暫定
+
+  # - layer: water_name
+  #   file:
+  #   - name: 10m_physical/ne_10m_geography_marine_polys.shp
+  #     class: ocean
+  #     minzoom: 0
+  #     maxzoom: 8
+
+  - layer: water_way
+    file:
+    - name: 110m_physical/ne_110m_rivers_lake_centerlines.shp
+      class: ocean
+      minzoom: 3
+      maxzoom: 3
+    - name: 50m_physical/ne_50m_rivers_lake_centerlines.shp
+      class: ocean
+      minzoom: 4
+      maxzoom: 5
+    - name: 10m_physical/ne_10m_rivers_lake_centerlines.shp
+      class: ocean
+      minzoom: 6
+      maxzoom: 7
+
+  - layer: boundary
+    file:
+    - name: 110m_cultural/ne_110m_admin_0_boundary_lines_land.shp
+      admin_level: 2
+      minzoom: 0
+      maxzoom: 0
+    - name: 50m_cultural/ne_50m_admin_0_boundary_lines_land.shp
+      admin_level: 4
+      minzoom: 0
+      maxzoom: 7
+    - name: 10m_cultural/ne_10m_admin_0_boundary_lines_land.shp
+      admin_level: 2
+      minzoom: 3
+      maxzoom: 7
+    - name: 10m_cultural/ne_10m_admin_1_states_provinces_lines.shp
+      admin_level: 4
+      minzoom: 4
+      maxzoom: 7
+
+  - layer: place
+    file:
+    - name: 10m_cultural/ne_10m_admin_1_states_provinces.shp
+      class: city
+      minzoom: 7
+      maxzoom: 3
+    - name: 10m_cultural/ne_10m_admin_0_countries.shp
+      class: country
+      minzoom: 7
+      maxzoom: 0
