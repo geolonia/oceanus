@@ -3,7 +3,6 @@
 # 2020.12.12 K.Takamoto(takamoto.biz)
 # Fionaに依存
 # -----------------------------------------
-import numpy as np
 
 class GJWriter:
     # コンストラクタ
