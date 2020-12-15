@@ -1,5 +1,6 @@
 version: 0.2
 basedir: /Users/takamotokeiji/data/Shape/NaturalEarth/
+outputfile: ./z7.json
 layers:
 
   - layer: landuse
@@ -34,46 +35,46 @@ layers:
       class: ice
       subclass: glacier
       minzoom: 5
-      maxzoom: 7 #暫定
+      maxzoom: 7
     - name: 10m_physical/ne_10m_antarctic_ice_shelves_polys.shp
       class: ice
       subclass: ice_shelf
       minzoom: 5
-      maxzoom: 7 #暫定
+      maxzoom: 7
 
   - layer: water
     file:
     - name: 110m_physical/ne_110m_ocean.shp
       class: ocean
       minzoom: 0
+      maxzoom: 1
+    - name: 50m_physical/ne_50m_ocean.shp
+      class: ocean
+      minzoom: 2
+      maxzoom: 4
+    - name: 10m_physical/ne_10m_ocean.shp
+      class: ocean
+      minzoom: 5
       maxzoom: 7
     - name: 110m_physical/ne_110m_lakes.shp
       class: lakes
       minzoom: 0
       maxzoom: 1
-    - name: 50m_physical/ne_50m_ocean.shp
-      class: ocean
-      minzoom: 2
-      maxzoom: 7  #暫定
     - name: 50m_physical/ne_50m_lakes.shp
       class: lakes
       minzoom: 2
-      maxzoom: 4  #暫定
-    # - name: 10m_physical/ne_10m_ocean.shp
-    #   class: ocean
-    #   minzoom: 4
-    #   maxzoom: 5
+      maxzoom: 4
     - name: 10m_physical/ne_10m_lakes.shp
       class: lakes
-      minzoom: 4
-      maxzoom: 7 # 暫定
+      minzoom: 5
+      maxzoom: 7
 
-  # - layer: water_name
-  #   file:
-  #   - name: 10m_physical/ne_10m_geography_marine_polys.shp
-  #     class: ocean
-  #     minzoom: 0
-  #     maxzoom: 8
+  - layer: water_name
+    file:
+    - name: 10m_physical/ne_10m_geography_marine_polys.shp
+      class: ocean
+      minzoom: 0
+      maxzoom: 7
 
   - layer: water_way
     file:
@@ -106,16 +107,18 @@ layers:
       maxzoom: 7
     - name: 10m_cultural/ne_10m_admin_1_states_provinces_lines.shp
       admin_level: 4
-      minzoom: 4
+      minzoom: 5
       maxzoom: 7
 
   - layer: place
     file:
+    - name: 110m_cultural/ne_110m_admin_0_countries.shp
+      class: country
+      attr: NAME_JA
+      minzoom: 0
+      maxzoom: 5
     - name: 10m_cultural/ne_10m_admin_1_states_provinces.shp
       class: city
-      minzoom: 7
-      maxzoom: 3
-    - name: 10m_cultural/ne_10m_admin_0_countries.shp
-      class: country
-      minzoom: 7
-      maxzoom: 0
+      attr: name_ja
+      minzoom: 6
+      maxzoom: 7
