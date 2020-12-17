@@ -23,6 +23,8 @@ RUN git clone https://github.com/mapbox/tippecanoe.git && \
     make -j && \
     make install    
 
+RUN apt-get install -y gdal-bin
+
 COPY . /app
 
 WORKDIR /root
