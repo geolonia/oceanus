@@ -6,10 +6,11 @@
 
 ## 起動方法
 
-git clone https://github.com/geolonia/tile-builder
-docker build -t geolonia/tile-builder .
-./quickstart.sh "データ保存用ディレクトリ（フルパス）"
-
+```
+$ git clone https://github.com/geolonia/tile-builder  
+$ docker build -t geolonia/tile-builder .  
+$ ./quickstart.sh "データ保存用ディレクトリ（フルパス）"  
+```
 ## 現状のレイヤ名と元データ
 
 ## Pythonのバージョンと必要モジュール
