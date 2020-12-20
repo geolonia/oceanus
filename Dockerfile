@@ -12,7 +12,12 @@ RUN apt-get update && \
     python-pip \
     zlib1g \
     zlib1g-dev \
-    libsqlite3-dev
+    libsqlite3-dev \
+    unzip \ 
+    python3 \
+    python3-pip \
+    sqlite3 \
+    vim
 
 RUN git clone git://github.com/mapbox/mbutil.git && \
     cd mbutil && \
@@ -24,6 +29,14 @@ RUN git clone https://github.com/mapbox/tippecanoe.git && \
     make install    
 
 RUN apt-get install -y gdal-bin
+
+RUN pip3 install pyyaml
+
+RUN pip3 install fiona
+
+RUN pip3 install shapely
+
+RUN mkdir /data
 
 COPY . /app
 

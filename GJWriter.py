@@ -85,12 +85,10 @@ if __name__ == '__main__':
     import yaml
     import fiona
     import datetime as dt
-    from shapely.geometry import shape,Polygon
-    from shapely.ops import polylabel
-    import json
+    from shapely.geometry import shape
 
     # yamlファイルのオープン
-    with open('./tile-builder.yaml' ,'r') as yml:
+    with open('/app/tile-builder.yaml' ,'r') as yml:
         config = yaml.load(yml)
 
     # GeoJSONWriterインスタンスの生成
@@ -109,53 +107,32 @@ if __name__ == '__main__':
             elements = fiona.open(basedir+filename['name'])
             # 図形要素を順次取得
             for element in elements:
-                # Nullシェープは無視
+                # Nullシェープは無視する
                 if element['geometry']==None:
                     continue
-                # 1.Property
+                # 2.Property
                 if 'class' in filename:
                     gjWriter.setProperty('class' ,filename['class'])
                 if 'subclass' in filename:
                     gjWriter.setProperty('subclass' ,filename['subclass'])
                 if 'admin_level' in filename:
                     gjWriter.setProperty('admin_level' ,filename['admin_level'])
-                # 2.Tippecanoe
+                # 3.Tippecanoe
                 gjWriter.setTippecanoe('layer' ,layer['layer'])
                 if 'minzoom' in filename:
                     gjWriter.setTippecanoe('minzoom' ,filename['minzoom'])
                 if 'maxzoom' in filename:
                     gjWriter.setTippecanoe('maxzoom' ,filename['maxzoom'])
-                # 3.ジオメトリ
+                # .dbfの属性値
                 if 'attr' in filename:
-                    # 属性ラベル（ポリゴン、マルチポルゴンのみ対応）
-                    if element['geometry']['type']=='MultiPolygon' or element['geometry']['type']=='Polygon':
-                        # プロパティ（名称）を設定：yamlにて項目名を設定できる方がよさそう
-                        gjWriter.setProperty('name:en' ,element['properties'][filename['attr']])
-                        area=0.0
-                        # ポリゴン取得Loop
-                        for parts in element['geometry']['coordinates']:
-                            if element['geometry']['type']=='MultiPolygon':
-                                pgn = Polygon(parts[0])
-                            else:
-                                pgn = Polygon(parts)
-                            if area < pgn.area:
-                                # 最大面積のポリゴンを記録
-                                area = pgn.area
-                                maxpgn=pgn
-                        try:
-                            # ラベル表示位置を最大ポリゴンのpolylabelにて決定
-                            geometry = "{\"type\":\"Point\",\"coordinates\":"
-                            geometry += str(polylabel(maxpgn ,tolerance=10)).replace("(","[").replace(")","]").replace("\'","\"").replace("POINT " ,"").replace(" " ,",")
-                            geometry += "}"
-                        except:
-                            # InvalidPolygonとなる場合は矩形中心とする
-                            geometry = "{\"type\":\"Point\",\"coordinates\":"
-                            geometry += str(maxpgn.centroid).replace("(","[").replace(")","]").replace("\'","\"").replace("POINT " ,"").replace(" " ,",")
-                            geometry += "}"
-                        # ジオメトリの設定
-                        gjWriter.setGeometry(geometry)
+                    bbox = shape(element['geometry']).bounds
+                    gjWriter.setProperty('name:en' ,element['properties'][filename['attr']])
+                    geometry = "{\"type\":\"Point\",\"coordinates\":["
+                    geometry += str(bbox[0]+(bbox[2]-bbox[0])/2) +"," + str(bbox[1]+(bbox[3]-bbox[1])/2)
+                    geometry += "]}"
+                    gjWriter.setGeometry(geometry)
                 else:
-                    # 属性ラベル以外
+                    # 1.Geometry
                     gjWriter.setGeometry(element['geometry'])
                 # 4.GeoJSONファイルへの書き込み
                 gjWriter.Write()

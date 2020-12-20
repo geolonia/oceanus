@@ -1,0 +1,8 @@
+#!/bin/bash
+/app/getne.sh
+python3 /app/GJWriter.py
+if [ -e /data/tiles.mbtiles ]; then
+    rm /data/tiles.mbtiles
+fi
+tippecanoe -z7 -o /data/tiles.mbtiles /data/tiles.json
+sqlite3 /data/tiles.mbtiles < /app/update.sql
