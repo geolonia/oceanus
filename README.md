@@ -1,8 +1,7 @@
 # tile-builder
 ## 概要
 
-[NaturalEarth](https://www.naturalearthdata.com)からダウンロードしたシェープファイルをGeoJSON形式に変換します。
-変換したGeoJSONを[Tippecanoe](https://github.com/mapbox/tippecanoe)を使ってmbtilesに変換し、ベクトルタイル配信に利用するとこを最終的な目的としています。
+[NaturalEarth](https://www.naturalearthdata.com)からダウンロードしたシェープファイルをmbtilesに変換します。
 
 ## 起動方法
 
