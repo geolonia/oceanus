@@ -90,7 +90,7 @@ if __name__ == '__main__':
     import json
 
     # yamlファイルのオープン
-    with open('./tile-builder.yaml' ,'r') as yml:
+    with open('/app/tile-builder.yaml' ,'r') as yml:
         config = yaml.load(yml)
 
     # GeoJSONWriterインスタンスの生成
