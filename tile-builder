@@ -6,3 +6,5 @@ if [ -e /data/tiles.mbtiles ]; then
 fi
 tippecanoe -z7 -o /data/tiles.mbtiles /data/tiles.json
 sqlite3 /data/tiles.mbtiles < /app/update.sql
+cp /app/tileserver-env.zip /data
+unzip /data/tileserver-env.zip

@@ -7,20 +7,20 @@
 
 ```
 $ git clone https://github.com/geolonia/tile-builder  
+$ cd tile-builder  
 $ docker build -t geolonia/tile-builder .  
-$ ./quickstart.sh "データ保存用ディレクトリ（フルパス）"  
+$ ./quickstart.sh "データ保存用ディレクトリ（フルパス）" "tileserver-glのポート番号"  
 ```
-## 現状のレイヤ名と元データ
 
-## Pythonのバージョンと必要モジュール
+## 参考
+
+## 導入されるPythonのバージョンと拡張モジュール
 
 * Pythonのバージョン:3.6.9
-* 必要モジュール
+* 拡張モジュール
   * PyYAML 5.3.1
   * fiona 1.8.18
   * Shaply 1.7.1
-
-## 参考
 
 ### tile-builder.yamlファイルの作成
 
