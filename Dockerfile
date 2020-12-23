@@ -16,8 +16,7 @@ RUN apt-get update && \
     unzip \ 
     python3 \
     python3-pip \
-    sqlite3 \
-    vim
+    sqlite3
 
 RUN git clone git://github.com/mapbox/mbutil.git && \
     cd mbutil && \
