@@ -116,9 +116,9 @@ layers:
       class: country
       attr: NAME_JA
       minzoom: 0
-      maxzoom: 5
+      maxzoom: 6
     - name: 10m_cultural/ne_10m_admin_1_states_provinces.shp
       class: city
       attr: name_ja
-      minzoom: 6
+      minzoom: 5
       maxzoom: 7
