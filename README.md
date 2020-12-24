@@ -23,10 +23,11 @@ $ ./runtilesv.sh "データ保存用ディレクトリ（フルパス）" "tiles
 
 ## 参考
 
-## 使用する外部プロダクト
+## 使用するプロダクト
 
 * [tippecanoe](https://github.com/mapbox/tippecanotileservewr-gl)
 * [tileserver-gl](https://github.com/maptiler/tileserver-gl)
+* [Google Font:Noto Sans JP](https://fonts.google.com/specimen/Noto+Sans+JP?subset=japanese)
 
 ## 導入されるPythonのバージョンと拡張モジュール
 
