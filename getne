@@ -27,5 +27,7 @@ fi
 if [ ! -e /data/10m_cultural/10m_cultural.zip ]; then
     mkdir /data/10m_cultural
     curl -L https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/10m_cultural.zip -o /data/10m_cultural/10m_cultural.zip
-    unzip -o /data/10m_cultural/10m_cultural.zip -d /data/
+    unzip -o /data/10m_cultural/10m_cultural.zip -d /data/10m_cultural
+    mv /data/10m_cultural/10m_cultural/* /data/10m_cultural/.
+    rmdir /data/10m_cultural/10m_cultural
 fi
