@@ -1,3 +1,2 @@
 #!/bin/bash
-cp /app//data/tilesvenv.tar.gz /data
-tar -xvzf /data/tilesvenv.tar.gz /data
+tar -xvzf /app/tilesvenv.tar.gz -C /data
