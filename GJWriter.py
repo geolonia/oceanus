@@ -91,7 +91,7 @@ if __name__ == '__main__':
 
     # yamlファイルのオープン
     with open('/app/tile-builder.yaml' ,'r') as yml:
-        config = yaml.load(yml)
+        config = yaml.load(yml, Loader=yaml.SafeLoade)
 
     # GeoJSONWriterインスタンスの生成
     gjWriter = GJWriter(config['outputfile'])
