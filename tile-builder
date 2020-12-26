@@ -1,4 +1,5 @@
 #!/bin/bash
+cp /data/tile-builder.yaml /app
 /app/getne
 python3 /app/GJWriter.py
 if [ -e /data/tiles.mbtiles ]; then
