@@ -47,7 +47,7 @@ http://localhost:ポート番号
 |file.minzoom|タイルを作成する最小ズーム値|
 |file.maxzoom|タイルを作成する最大ズーム値|
 
-## 使用ているプロダクト
+## 使用プロダクト
 
 * [tippecanoe](https://github.com/mapbox/tippecanotileservewr-gl)
 * [tileserver-gl](https://github.com/maptiler/tileserver-gl)
