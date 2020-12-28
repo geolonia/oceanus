@@ -57,6 +57,318 @@ http://localhost:ポート番号
   * PyYAML 5.3.1
   * fiona 1.8.18
   * Shaply 1.7.1
+  
+## タイルのメタデータ（サンプル）
+
+```
+{
+  "vector_layers": [
+    {
+      "id": "boundary",
+      "description": "",
+      "minzoom": 0,
+      "maxzoom": 7,
+      "fields": {
+        "admin_level": "Number"
+      }
+    },
+    {
+      "id": "landcover",
+      "description": "",
+      "minzoom": 0,
+      "maxzoom": 7,
+      "fields": {
+        "class": "String",
+        "subclass": "String"
+      }
+    },
+    {
+      "id": "landuse",
+      "description": "",
+      "minzoom": 0,
+      "maxzoom": 7,
+      "fields": {
+        "class": "String"
+      }
+    },
+    {
+      "id": "place",
+      "description": "",
+      "minzoom": 0,
+      "maxzoom": 7,
+      "fields": {
+        "class": "String",
+        "name:en": "String"
+      }
+    },
+    {
+      "id": "water",
+      "description": "",
+      "minzoom": 0,
+      "maxzoom": 7,
+      "fields": {
+        "class": "String"
+      }
+    },
+    {
+      "id": "water_name",
+      "description": "",
+      "minzoom": 0,
+      "maxzoom": 7,
+      "fields": {
+        "class": "String"
+      }
+    },
+    {
+      "id": "water_way",
+      "description": "",
+      "minzoom": 0,
+      "maxzoom": 7,
+      "fields": {
+        "class": "String"
+      }
+    }
+  ],
+  "tilestats": {
+    "layerCount": 7,
+    "layers": [
+      {
+        "layer": "boundary",
+        "count": 11123,
+        "geometry": "LineString",
+        "attributeCount": 1,
+        "attributes": [
+          {
+            "attribute": "admin_level",
+            "count": 2,
+            "type": "number",
+            "values": [
+              2,
+              4
+            ],
+            "min": 2,
+            "max": 4
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "count": 2497,
+        "geometry": "Polygon",
+        "attributeCount": 2,
+        "attributes": [
+          {
+            "attribute": "class",
+            "count": 1,
+            "type": "string",
+            "values": [
+              "ice"
+            ]
+          },
+          {
+            "attribute": "subclass",
+            "count": 2,
+            "type": "string",
+            "values": [
+              "glacier",
+              "ice_shelf"
+            ]
+          }
+        ]
+      },
+      {
+        "layer": "landuse",
+        "count": 4286,
+        "geometry": "Polygon",
+        "attributeCount": 1,
+        "attributes": [
+          {
+            "attribute": "class",
+            "count": 1,
+            "type": "string",
+            "values": [
+              "residential"
+            ]
+          }
+        ]
+      },
+      {
+        "layer": "place",
+        "count": 4771,
+        "geometry": "Point",
+        "attributeCount": 2,
+        "attributes": [
+          {
+            "attribute": "class",
+            "count": 2,
+            "type": "string",
+            "values": [
+              "city",
+              "country"
+            ]
+          },
+          {
+            "attribute": "name:en",
+            "count": 1000,
+            "type": "string",
+            "values": [
+              "None",
+              "­キャンギャルリ県",
+              "­ボグダンツィ",
+              "­ボシロヴォ",
+              "­ヴァシレヴォ",
+              "­ヴァランドヴォ",
+              "アアーナ",
+              "アイウォ地区",
+              "アイウン＝ブジュール＝サキア・エル・ハムラ地方",
+              "アイオワ州",
+              "アイガイレタイ",
+              "アイスランド",
+              "アイズクラウクレ",
+              "アイズプテ",
+              "アイセン・デル・ヘネラル・カルロス・イバニェス・デル・カンポ州",
+              "アイダホ州",
+              "アイツタキ島",
+              "アイドゥン県",
+              "アイドフシュチナ",
+              "アイナロ県",
+              "アイメリーク州",
+              "アイライ州",
+              "アイルランド",
+              "アイレウ県",
+              "アインシーレム",
+              "アインデフラ県",
+              "アイン・ティムシェント県",
+              "アウスト・アグデル県",
+              "アウター・ヘブリディーズ",
+              "アウツェ",
+              "アウロラ州",
+              "アウ・カップ",
+              "アオスタ",
+              "アカバ県",
+              "アガゴ県",
+              "アガデス州",
+              "アガレガ諸島",
+              "アクサライ県",
+              "アクトベ州",
+              "アクニーステ",
+              "アクモラ州",
+              "アクラン州",
+              "アクリンズ",
+              "アクレ州",
+              "アクワ・イボム州",
+              "アグアスカリエンテス州",
+              "アグジャバディ県",
+              "アグスタファ県",
+              "アグス県",
+              "アグダシュ県",
+              "アグダム県",
+              "アグリジェント県",
+              "アグルァナ",
+              "アサバ州",
+              "アザド・カシミール",
+              "アシャンティ州",
+              "アシュート県",
+              "アジャリア自治共和国",
+              "アジュダービヤー",
+              "アジュマニ県",
+              "アジュマーン",
+              "アジュルン県",
+              "アスアイ県",
+              "アスア州",
+              "アスィール州",
+              "アスコリ・ピチェーノ県",
+              "アスタナ",
+              "アスタラ県",
+              "アスティ県",
+              "アストゥリアス州",
+              "アストラハン州",
+              "アスワン県",
+              "アスンシオン",
+              "アセンション島",
+              "アゼルバイジャン",
+              "アゾレス諸島",
+              "アタカマ州",
+              "アタコラ県",
+              "アタード",
+              "アダナ県",
+              "アダマワ州",
+              "アチェ州",
+              "アックアヴィーヴァ",
+              "アッサム州",
+              "アッタプー県",
+              "アッティキ",
+              "アッドゥ環礁",
+              "アッバ",
+              "アッパー・イースト州",
+              "アッパー・ウエスト州",
+              "アッパー・タクトゥ＝アッパー・エセキボ州",
+              "アッパー・デメララ＝ベルビセ州",
+              "アッペンツェル・アウサーローデン準州",
+              "アッペンツェル・インナーローデン準州",
+              "アッ＝ザアーイン",
+              "アッ＝シャマール",
+              "アティラウ州",
+              "アディゲ共和国",
+              "アディスアベバ",
+              "アデン県"
+            ]
+          }
+        ]
+      },
+      {
+        "layer": "water",
+        "count": 1658,
+        "geometry": "Polygon",
+        "attributeCount": 1,
+        "attributes": [
+          {
+            "attribute": "class",
+            "count": 2,
+            "type": "string",
+            "values": [
+              "lakes",
+              "ocean"
+            ]
+          }
+        ]
+      },
+      {
+        "layer": "water_name",
+        "count": 307,
+        "geometry": "Polygon",
+        "attributeCount": 1,
+        "attributes": [
+          {
+            "attribute": "class",
+            "count": 1,
+            "type": "string",
+            "values": [
+              "ocean"
+            ]
+          }
+        ]
+      },
+      {
+        "layer": "water_way",
+        "count": 1928,
+        "geometry": "LineString",
+        "attributeCount": 1,
+        "attributes": [
+          {
+            "attribute": "class",
+            "count": 1,
+            "type": "string",
+            "values": [
+              "ocean"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+```
 
 ## 変換結果表示URL
 
