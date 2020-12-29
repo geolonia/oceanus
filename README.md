@@ -14,10 +14,10 @@ Oceanus（オケアノス）とは、ギリシャ神話に登場する神の一�
 
 mbtilesへの変換は以下のように行います。
 ```
-$ git clone https://github.com/geolonia/tile-builder  
-$ cd tile-builder  
-$ docker build -t geolonia/tile-builder .
-$ ./tile-builder.sh <データ保存用ディレクトリ（フルパス）>
+$ git clone https://github.com/geolonia/oceanus  
+$ cd oceanus  
+$ docker build -t geolonia/oceanus .
+$ ./oceanus.sh <データ保存用ディレクトリ（フルパス）>
 ```
 
 変換したタイルの配信は以下のように行います。

@@ -1,6 +1,6 @@
 version: 0.2
 basedir: /data/
-outputfile: /data/tiles.json
+outputfile: /data/shp2geojson.json
 layers:
 
   - layer: landuse
