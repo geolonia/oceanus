@@ -7,7 +7,7 @@ Oceanus（オケアノス）とは、ギリシャ神話に登場する神の一�
 ## 概要
 
 [NaturalEarth](https://www.naturalearthdata.com)からシェープファイルをダウンロードしmbtilesに変換します。
-具体的には、設定ファイル（tile-builder.yaml）で指定したシェープファイルをGeoJSON形式に変換し、tippecanoeを使ってmbtilesに変換します。  
+具体的には、設定ファイル（shp2geojson.yaml）で指定したシェープファイルをGeoJSON形式に変換し、tippecanoeを使ってmbtilesに変換します。  
 変換したmbtilesは、runtilesv.shスクリプト（tileserver-glのDockerコンテナを作成）を使って配信できます。
 
 ## 利用方法
@@ -39,7 +39,7 @@ http://localhost:ポート番号
  * 10m_physical(4.7MB)
  * 10m_cultural(206.7MB)
 
-### tile-builder.yamlの設定項目
+### shp2geojson.yamlの設定項目
 
 |項目|設定内容|
 |----|----|
