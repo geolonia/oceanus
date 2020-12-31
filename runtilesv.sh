@@ -3,9 +3,10 @@ CONTAINER_NAME="tilesv"
 DIR="/tmp"
 PORTNO=80
 
-while getopts ":d:p:h" OPT; do
+while getopts ":d:p:n:h" OPT; do
     case "$OPT" in
         p) PORTNO="$OPTARG" ;;
+        n) CONTAINER_NAME="$OPTARG" ;;
         d)
             if [ "$OPTARG"="." ]; then
                 DIR=$(cd "$OPTARG" && pwd)
@@ -16,11 +17,11 @@ while getopts ":d:p:h" OPT; do
             fi
             ;;
         h)
-            echo "Usage: oceanus.sh [options]"
-            echo "  Specifies the port number."
-            echo "      [-p ...]"
-            echo "  Specifies the directory for input data."
-            echo "      [-d ...]"
+            echo "Usage: runtilesv.sh [options]"
+            echo "Options:"
+            echo "  -n  container name ( default "\""tilesv"\"" )"
+            echo "  -p  port number ( default 80 )"
+            echo "  -d  directory for mbtiles ( default "\""/tmp"\"" )"
             exit 1
             ;;
     esac

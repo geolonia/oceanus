@@ -11,35 +11,35 @@ Oceanus（オケアノス）とは、ギリシャ神話に登場する神の一�
 変換したmbtilesは、runtilesv.shスクリプト（TileserverGLのDockerコンテナを作成）を使って配信できます。
 
 ## 利用方法
-
-### mbtilesへの変換
-Natural Earthデータからmbtilesへの変換は以下のように行います。
+Oceanusによる地図表示までの流れを以降に示します。
+### mbtilesの作成
+mbtilesの作成は以下のように行います。
 ```
 $ git clone https://github.com/geolonia/oceanus  
 $ cd oceanus  
-$ docker build -t geolonia/oceanus .
 $ ./oceanus.sh
 ```
-`oceanus.sh`は、`/tmp`ディレクトリにNatural Earthデータをダウンロードし mbtiles を作成します。  
-以下のオプションが指定できます。  
-* `-d`：mbtiles を作成するディレクトリを指定します。（デフォルトは`/tmp`）  
+`oceanus.sh`は、Oceanus用のDockerイメージをビルドしNatural Earthデータをダウンロードして`oceanus.mbtiles`を作成します。  
+以下のオプションを指定できます。  
+* `-d`：`oceanus.mbtiles` を作成するディレクトリを指定します。（未指定時は`/tmp`）  
 
-変換したタイルの配信は以下のように行います。
+### HTTPによる配信
+HTTPによる配信は以下のように行います。
 ```
 $ ./runtilesv.sh  
 ```
-`runtilesv.sh`は、TileserverGLのDockerコンテナを作成し`/tmp`ディレクトリに存在する mbtiles をポート80にて配信します。  
-以下のオプションが指定できます。  
-* `-d`：配信する mbtiles が存在するディレクトリを指定します。（デフォルトは`/tmp`）
-* `-p`：配信するポート番号を指定します。（デフォルトは`80`）  
+`runtilesv.sh`は、TileserverGLのDockerコンテナを作成し mbtiles を配信します。  
+以下のオプションを指定できます。  
+* `-d`：`oceanus.mbtiles`が存在するディレクトリを指定します。（未指定時は`/tmp`）
+* `-p`：配信ポート番号を指定します。（未指定時は`80`）
+* `-n`：TileserverGLのコンテナ名を指定します。（未指定時は`tilesv`）
 
-TileserverGLのコンテナ名は`tilesv`となります。
-
+### 地図の表示
 `runtilesv.sh`実行後、ブラウザからURL `http://localhost:ポート番号` を指定するとTileserverGLの初期画面が表示されます。スタイル"basic"を指定することで地図を表示できます。  
 
 ## 参考
 
-## NaturalEarthからダウンロードするデータ
+### NaturalEarthからダウンロードするデータ
 
  * 110m_physical(3.4MB)
  * 110m_cultural(1.3MB)
@@ -61,7 +61,7 @@ TileserverGLのコンテナ名は`tilesv`となります。
 |file.minzoom|タイルを作成する最小ズーム値|
 |file.maxzoom|タイルを作成する最大ズーム値|
 
-## 使用プロダクト
+### 使用プロダクト
 
 * [tippecanoe](https://github.com/mapbox/tippecanotileservewr-gl)
 * [tileserver-gl](https://github.com/maptiler/tileserver-gl)
@@ -72,7 +72,7 @@ TileserverGLのコンテナ名は`tilesv`となります。
   * fiona 1.8.18
   * Shaply 1.7.1
   
-## タイルのメタデータ（サンプル）
+### タイルのメタデータ（サンプル）
 
 ```
 {
@@ -384,6 +384,6 @@ TileserverGLのコンテナ名は`tilesv`となります。
 }
 ```
 
-## 変換結果表示URL
+### 変換結果表示URL
 
 [https://labo.takamoto.biz/oceanus](https://labo.takamoto.biz/oceanus)

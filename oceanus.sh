@@ -13,13 +13,15 @@ while getopts ":d:h" OPT; do
             ;;
         h)
             echo "Usage: oceanus.sh [options]"
-            echo "  Specifies the directory for output."
-            echo "      [-d ...]"
+            echo "Options:"
+            echo "  -d  directory for output ( default "\""/tmp"\"" )"
             exit 1
             ;;
     esac
 done
 
+echo "Building Oceanus Docker Image.Tag name is geolonia/oceanus."
+docker build -t geolonia/oceanus .
 cp ./shp2geojson.yaml $DIR
 echo "cp ./shp2geojson.yaml ${DIR}"
 docker run -it --rm --name oceanus -v $DIR:/data geolonia/oceanus /app/ne2mbtiles
