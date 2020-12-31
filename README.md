@@ -386,4 +386,4 @@ TileserverGLのコンテナ名は`tilesv`となります。
 
 ## 変換結果表示URL
 
-[https://labo.takamoto.biz/tile-builder](https://labo.takamoto.biz/tile-builder)
+[https://labo.takamoto.biz/oceanus](https://labo.takamoto.biz/oceanus)
