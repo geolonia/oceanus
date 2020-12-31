@@ -1,9 +1,0 @@
-#!/bin/bash
-cp /data/shp2geojson.yaml /app
-/app/getne
-python3 /app/shp2geojson.py
-if [ -e /data/oceanus.mbtiles ]; then
-    rm /data/oceanus.mbtiles
-fi
-tippecanoe -z7 -o /data/oceanus.mbtiles /data/shp2geojson.json
-sqlite3 /data/oceanus.mbtiles < /app/update.sql

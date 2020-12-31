@@ -8,25 +8,34 @@ Oceanus（オケアノス）とは、ギリシャ神話に登場する神の一�
 
 [NaturalEarth](https://www.naturalearthdata.com)からシェープファイルをダウンロードしmbtilesに変換します。
 具体的には、設定ファイル（shp2geojson.yaml）で指定したシェープファイルをGeoJSON形式に変換し、tippecanoeを使ってmbtilesに変換します。  
-変換したmbtilesは、runtilesv.shスクリプト（tileserver-glのDockerコンテナを作成）を使って配信できます。
+変換したmbtilesは、runtilesv.shスクリプト（TileserverGLのDockerコンテナを作成）を使って配信できます。
 
 ## 利用方法
 
-mbtilesへの変換は以下のように行います。
+### mbtilesへの変換
+Natural Earthデータからmbtilesへの変換は以下のように行います。
 ```
 $ git clone https://github.com/geolonia/oceanus  
 $ cd oceanus  
 $ docker build -t geolonia/oceanus .
-$ ./oceanus.sh <データ保存用ディレクトリ（フルパス）>
+$ ./oceanus.sh
 ```
+`oceanus.sh`は、`/tmp`ディレクトリにNatural Earthデータをダウンロードし mbtiles を作成します。  
+以下のオプションが指定できます。  
+* `-d`：mbtiles を作成するディレクトリを指定します。（デフォルトは`/tmp`）  
 
 変換したタイルの配信は以下のように行います。
 ```
-$ ./runtilesv.sh <データ保存用ディレクトリ（フルパス）> <配信サーバーのポート番号>  
+$ ./runtilesv.sh  
 ```
+`runtilesv.sh`は、TileserverGLのDockerコンテナを作成し`/tmp`ディレクトリに存在する mbtiles をポート80にて配信します。  
+以下のオプションが指定できます。  
+* `-d`：配信する mbtiles が存在するディレクトリを指定します。（デフォルトは`/tmp`）
+* `-p`：配信するポート番号を指定します。（デフォルトは`80`）  
 
-ブラウザから以下のようにURLを指定するとtileserver-glの初期画面が表示されますので、スタイル"basic"を指定することで、地図を表示できます。  
-http://localhost:ポート番号
+TileserverGLのコンテナ名は`tilesv`となります。
+
+`runtilesv.sh`実行後、ブラウザからURL `http://localhost:ポート番号` を指定するとTileserverGLの初期画面が表示されます。スタイル"basic"を指定することで地図を表示できます。  
 
 ## 参考
 
