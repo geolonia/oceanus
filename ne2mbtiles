@@ -34,4 +34,4 @@ fi
 cp /data/shp2geojson.yaml /app
 python3 /app/shp2geojson.py
 tippecanoe -z7 -f -o /data/oceanus.mbtiles /data/shp2geojson.json
-sqlite3 /data/oceanus.mbtiles < /app/update.sql
+#sqlite3 /data/oceanus.mbtiles < /app/update.sql

@@ -29,11 +29,7 @@ RUN git clone https://github.com/mapbox/tippecanoe.git && \
 
 RUN apt-get install -y gdal-bin
 
-RUN pip3 install pyyaml
-
-RUN pip3 install fiona
-
-RUN pip3 install shapely
+RUN pip3 install pyyaml fiona shapely
 
 RUN mkdir /data
 

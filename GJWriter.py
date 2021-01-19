@@ -28,7 +28,7 @@ class GJWriter:
 
     def setGeometry(self ,inGeom):
         """
-        Set "Geometry" notation.
+        Set "Geometry" member.
         :param inGeom: Geometry data to output
         :type inOutFile: Objects in Fiona Geometry
         """
@@ -36,8 +36,8 @@ class GJWriter:
 
     def setProperty(self ,inName ,inValue):
         """
-        Set "Property" notation.
-        "Tippecanoe" is special notation for the tippecanoe utility.
+        Set "Property" member.
+        "Tippecanoe" is special member for the tippecanoe utility.
         :param inName: Name of the property
         :type inName: String
         :param inValue: Value of the property
@@ -56,7 +56,7 @@ class GJWriter:
 
     def setTippecanoe(self ,inName ,inValue):
         """
-        Set "Tippecanoe" notation.
+        Set "Tippecanoe" member.
         "Tippecanoe" is an attribute of Feature object.
         :param inName: Name of the tippecanoe
         :type inName: String
@@ -84,20 +84,24 @@ class GJWriter:
         else:
             self._jsonfd.write(",\n")
 
-        # Set "type" notation(Header for the Feature)
+        # Set "type" member(Header for the Feature)
         self._jsonfd.write("\t{\"type\":\"Feature\",\n")
-        # Set "Geometry" notation
+        # Set "Geometry" member
         self._jsonfd.write("\"geometry\":" + self.Geometry + ",\n")
-        # Set "Tippecanoe" notation
-        self._jsonfd.write("\"tippecanoe\":{" + self.Tippecanoe + "}")
-        # Set "Property" notation
+        # Set "Tippecanoe" member
+        if self.Tippecanoe != None:
+            self._jsonfd.write("\"tippecanoe\":{" + self.Tippecanoe + "},\n")
+        # Set "Property" member
         if self.Properties != None:
-            self._jsonfd.write(",\n")
             self._jsonfd.write("\"properties\":{" + self.Properties + "}")
 
         # End of Feature
         self._jsonfd.write("}")
 
+        # Clear all properties
+        self.Clear()
+
+    def Clear(self):
         # Clear all properties
         self.Geometry = None
         self.Properties = None

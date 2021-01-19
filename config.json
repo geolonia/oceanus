@@ -1,0 +1,19 @@
+{
+    "options": {
+      "paths": {
+        "root": "",
+        "styles": "",
+        "mbtiles": ""
+      }
+    },
+    "styles": {
+      "oceanus": {
+        "style": "style.json"
+        }
+    },
+    "data": {
+      "oceanus": {
+        "mbtiles": "oceanus.mbtiles"
+      }
+    }
+  }
