@@ -52,7 +52,7 @@ for layer in layers:
             # Set "Geometry" member
             if 'attr' in filename:
                 # Issue#21(Do not mark "None" on the map)
-                if element['properties'][filename['attr']]==None:
+                if element['properties'][filename['attr']]==None or element['properties'][filename['attr']]=='スコットランド海':
                     gjWriter.Clear()
                     continue
                 # Attribute label (only polygon and multipolygon are supported)
