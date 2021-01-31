@@ -19,9 +19,9 @@ while getopts ":d:p:n:h" OPT; do
         h)
             echo "Usage: runtilesv.sh [options]"
             echo "Options:"
-            echo "  -n  container name ( default "\""tilesv"\"" )"
-            echo "  -p  port number ( default 8080 )"
-            echo "  -d  directory for mbtiles ( default "\""/tmp"\"" )"
+            echo "  -n  container name ( default "\""${CONTAINER_NAME}"\"" )"
+            echo "  -p  port number ( default "\""${PORTNO}"\"" )"
+            echo "  -d  directory for mbtiles ( default "\""${DIR}"\"" )"
             exit 1
             ;;
     esac
