@@ -13,10 +13,8 @@ RUN apt-get update && \
     zlib1g \
     zlib1g-dev \
     libsqlite3-dev \
-    unzip \ 
-    python3 \
-    python3-pip \
-    sqlite3
+    unzip \
+    gdal-bin
 
 RUN git clone git://github.com/mapbox/mbutil.git && \
     cd mbutil && \
@@ -27,9 +25,13 @@ RUN git clone https://github.com/mapbox/tippecanoe.git && \
     make -j && \
     make install    
 
-RUN apt-get install -y gdal-bin
+RUN apt-get install -y python3 \
+    python3-pip
 
-RUN pip3 install pyyaml fiona shapely
+
+RUN pip3 install pyyaml \
+                 fiona \
+                 shapely
 
 RUN mkdir /data
 
