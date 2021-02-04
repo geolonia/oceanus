@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Oceanus | Natural Earthベクトルタイル</title>
+  <style>
+    html, body, #map {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    .mapbox-attribution-container {
+      bottom: 0;
+      right: 0;
+      background-color: ivory;
+      position: absolute;
+      z-index: 1;
+      display: block;
+      margin: 0 10px 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="map" data-hash="on"></div>
+  <div class="mapbox-attribution-container">
+    <a href="https://www.naturalearthdata.com/downloads/">出典 Natural Earth</a>
+  </div>
+<script src="https://api.geolonia.com/dev/embed?geolonia-api-key=YOUR-API-KEY"></script>
+ <script>
+  var map = new mapboxgl.Map({
+    container: '#map',
+    style: "https://labo.takamoto.biz/oceanus/styles/oceanus/style.json",
+    zoom: 1.5,
+    center: [135.47749, 34.71835]
+  });
+  </script>
+</body>
+</html>
