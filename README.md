@@ -389,4 +389,4 @@ $ ./runtilesv.sh
 
 ### 変換結果表示URL
 
-[https://labo.takamoto.biz/oceanus](https://labo.takamoto.biz/oceanus)
+[https://geolonia.github.io/oceanus/oceanus.html](https://geolonia.github.io/oceanus/oceanus.html)
