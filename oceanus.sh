@@ -1,4 +1,6 @@
 #!/bin/bash
+set -ex
+
 DIR="/tmp"
 while getopts ":d:h" OPT; do
     case "$OPT" in
