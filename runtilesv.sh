@@ -1,7 +1,7 @@
 #!/bin/bash
 CONTAINER_NAME="tilesv"
-DIR="/tmp"
-PORTNO=80
+DIR="$(pwd)/data"
+PORTNO=8080
 
 while getopts ":d:p:n:h" OPT; do
     case "$OPT" in
