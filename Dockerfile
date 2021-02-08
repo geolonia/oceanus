@@ -20,9 +20,10 @@ RUN git clone git://github.com/mapbox/mbutil.git && \
     cd mbutil && \
     python setup.py install
 
+# The retry of `make -j` is a temporary fix. see https://github.com/geolonia/oceanus/issues/41
 RUN git clone https://github.com/mapbox/tippecanoe.git && \
     cd tippecanoe && \
-    make -j && \
+    (make -j || make -j) && \
     make install    
 
 RUN apt-get install -y python3 \
