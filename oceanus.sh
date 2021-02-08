@@ -1,7 +1,9 @@
 #!/bin/bash
 set -ex
 
-DIR="/tmp"
+DIR=$(pwd)/data
+mkdir -p $DIR
+
 while getopts ":d:h" OPT; do
     case "$OPT" in
         d)
