@@ -18,7 +18,7 @@ while getopts ":d:h" OPT; do
         h)
             echo "Usage: oceanus.sh [options]"
             echo "Options:"
-            echo "  -d  directory for output ( default "\""/tmp"\"" )"
+            echo "  -d  directory for output ( default "\""./data"\"" )"
             exit 1
             ;;
     esac

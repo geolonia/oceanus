@@ -24,7 +24,7 @@ $ ./oceanus.sh
 ```
 `oceanus.sh`は、Oceanus用のDockerイメージをビルドしNatural Earthデータをダウンロードして`oceanus.mbtiles`を作成します。  
 以下のオプションを指定できます。  
-* `-d`：`oceanus.mbtiles` を作成するディレクトリを指定します。（未指定時は`/tmp`）  
+* `-d`：`oceanus.mbtiles` を作成するディレクトリを指定します。（未指定時は`./data`）  
 
 ### HTTPによる配信
 HTTPによる配信は以下のように行います。
