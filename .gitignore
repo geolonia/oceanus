@@ -1,3 +1,7 @@
 
 .DS_Store
+*.mbtiles
+shp2geojson.json
+/__pycache__
 /data
+/test

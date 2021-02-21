@@ -45,7 +45,7 @@ class GJWriter:
         """
         # Tabs for the first item, commas for the second and subsequent items
         if self.Properties==None:
-            self.Properties = "\t"
+            self.Properties= ""
         else:
             self.Properties+= ","
         # Set value
@@ -65,7 +65,7 @@ class GJWriter:
         """
         # Tabs for the first item, commas for the second and subsequent items
         if self.Tippecanoe==None:
-            self.Tippecanoe = "\t"
+            self.Tippecanoe= ""
         else:
             self.Tippecanoe += ","        
         # Set value
@@ -85,12 +85,12 @@ class GJWriter:
             self._jsonfd.write(",\n")
 
         # Set "type" member(Header for the Feature)
-        self._jsonfd.write("\t{\"type\":\"Feature\",\n")
+        self._jsonfd.write("\t{\"type\":\"Feature\",")
         # Set "Geometry" member
-        self._jsonfd.write("\"geometry\":" + self.Geometry + ",\n")
+        self._jsonfd.write("\"geometry\":" + self.Geometry + ",")
         # Set "Tippecanoe" member
         if self.Tippecanoe != None:
-            self._jsonfd.write("\"tippecanoe\":{" + self.Tippecanoe + "},\n")
+            self._jsonfd.write("\"tippecanoe\":{" + self.Tippecanoe + "},")
         # Set "Property" member
         if self.Properties != None:
             self._jsonfd.write("\"properties\":{" + self.Properties + "}")

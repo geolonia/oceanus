@@ -11,6 +11,7 @@ from GJWriter import GJWriter
 
 # Open setting file.
 with open('/app/shp2geojson.yaml' ,'r') as yml:
+# with open('./shp2geojson.yaml' ,'r') as yml:
     config = yaml.load(yml, Loader=yaml.SafeLoader)
 
 # Create instance of GJWriter
