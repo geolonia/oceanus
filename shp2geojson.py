@@ -1,5 +1,5 @@
 """
-Convert for ESRI Shapefile to GeoJSON.
+Convert ESRI Shapefile to GeoJSON.
 """
 import yaml
 import fiona
