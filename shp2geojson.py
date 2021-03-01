@@ -50,6 +50,12 @@ for layer in layers:
                 gjWriter.setTippecanoe('minzoom' ,filename['minzoom'])
             if 'maxzoom' in filename:
                 gjWriter.setTippecanoe('maxzoom' ,filename['maxzoom'])
+            # Issue#47(Disputed border)
+            if 'ne_10m_admin_1_states_provinces_lines' in filename['fname']:
+                if element['properties']['note']=='Russa_1000':
+                    print('Disputed border:[' + element['properties']['note'] + ']')
+                    gjWriter.Clear()
+                    continue
             # Set "Geometry" member
             if 'attr' in filename:
                 # Issue#21(Do not mark "None" on the map)

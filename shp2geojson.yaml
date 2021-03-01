@@ -1,10 +1,8 @@
 version: 0.9
 basedir: /data/
 outputfile: /data/shp2geojson.json
-# basedir: ./data/
-# outputfile: ./shp2geojson.json
-layers:
 
+layers:
   - layer: landuse
     file:
     - fname: 50m_cultural/ne_50m_urban_areas.shp
@@ -85,10 +83,6 @@ layers:
       admin_level: 2
       minzoom: 0
       maxzoom: 0
-#    - fname: 50m_cultural/ne_50m_admin_0_boundary_lines_land.shp
-#      admin_level: 4
-#      minzoom: 0
-#      maxzoom: 7
     - fname: 10m_cultural/ne_10m_admin_0_boundary_lines_land.shp
       admin_level: 2
       minzoom: 1
