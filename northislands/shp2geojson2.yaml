@@ -1,0 +1,34 @@
+version: 0.91
+basedir: ./
+outputfile: ./shp2geojson.json
+
+layers:
+  - layer: landuse
+    file:
+    - lname: Anno         # 注記
+      class: commercial
+      attr: knj
+  - layer: landuse
+    file:
+    - lname: BldA         # 建築物
+      class: commercial
+  - layer: landuse
+    file:
+    - lname: RdCL         # 道路中心
+      class: commercial
+  - layer: landuse
+    file:
+    - lname: RvrCL        # 河川中心
+      class: commercial
+  - layer: landuse
+    file:
+    - lname: TrfSbl       # 道路施設番号
+      class: commercial
+  - layer: landuse
+    file:
+    - lname: WA           # 水域
+      class: commercial
+  - layer: landuse
+    file:
+    - lname: WfArea       # 滝
+      class: commercial
