@@ -8,6 +8,7 @@ from shapely.geometry import shape,Polygon
 from shapely.ops import polylabel
 import json
 from GJWriter import GJWriter
+import glob
 
 # Open setting file.
 with open('./shp2geojson2.yaml' ,'r') as yml:
@@ -17,7 +18,7 @@ with open('./shp2geojson2.yaml' ,'r') as yml:
 # Create instance of GJWriter
 gjWriter = GJWriter(config['outputfile'])
 # Get basic information from yaml
-basedir = config['basedir']
+shapedir = config['shapedir']
 layers = config['layers']
 
 # Get layer information
@@ -25,9 +26,13 @@ for layer in layers:
     # Get file information
     for filename in layer['file']:
         # Print start message
-        print('Start:['+str(dt.datetime.now())+']'+filename['fname'])
+        print('Start:['+str(dt.datetime.now())+']'+filename['pofname'])
+
+        # Get Shapefiles
+        shapefiles = glob.glob(shapedir+"/*/*Anno*.shp")
+
         # Open the shapefile
-        elements = fiona.open(basedir+filename['fname'])
+        elements = fiona.open(shapedir+filename['pofname'])
         # Get elements
         for element in elements:
             # Ignore Null Shapes
@@ -50,18 +55,8 @@ for layer in layers:
                 gjWriter.setTippecanoe('minzoom' ,filename['minzoom'])
             if 'maxzoom' in filename:
                 gjWriter.setTippecanoe('maxzoom' ,filename['maxzoom'])
-            # Issue#47(Disputed border)
-            if 'ne_10m_admin_1_states_provinces_lines' in filename['fname']:
-                if element['properties']['note']=='Russa_1000':
-                    print('Disputed border:[' + element['properties']['note'] + ']')
-                    gjWriter.Clear()
-                    continue
             # Set "Geometry" member
             if 'attr' in filename:
-                # Issue#21(Do not mark "None" on the map)
-                if element['properties'][filename['attr']]==None or element['properties'][filename['attr']]=='スコットランド海':
-                    gjWriter.Clear()
-                    continue
                 # Attribute label (only polygon and multipolygon are supported)
                 if element['geometry']['type']=='MultiPolygon' or element['geometry']['type']=='Polygon':
                     # Get attribute name and set "Property" member
@@ -98,7 +93,7 @@ for layer in layers:
         # Close Shapefile
         elements.close()
         # Print end message
-        print('End  :['+str(dt.datetime.now())+']'+filename['fname'])
+        print('End  :['+str(dt.datetime.now())+']'+filename['pofname'])
 
 # Dispose GJWriter instance
 del gjWriter
