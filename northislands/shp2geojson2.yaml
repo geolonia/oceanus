@@ -1,4 +1,5 @@
 version: 0.91
+#shapedir: /Users/takamotokeiji/data/数値地図
 shapedir: ./shape
 outputfile: ./shp2geojson.json
 
