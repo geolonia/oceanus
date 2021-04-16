@@ -8,6 +8,7 @@ from shapely.geometry import shape,Polygon
 from shapely.ops import polylabel
 import json
 from GJWriter import GJWriter
+import pathlib
 import glob
 
 # Open setting file.
@@ -29,7 +30,7 @@ for layer in layers:
         print('Start:['+str(dt.datetime.now())+']'+filename['pofname'])
 
         # Get Shapefiles(specify part of file name)
-        shapefiles = glob.glob(shapedir + "/*/*" + filename['pofname'] +"*.shp")
+        shapefiles = glob.glob(shapedir + "/*/*/*" + filename['pofname'] +"*.shp")
         # Get elements
         for shapefile in shapefiles:
             # Open the shapefile
@@ -39,6 +40,10 @@ for layer in layers:
                 # Ignore Null Shapes
                 if element['geometry']==None:
                     continue
+                # Ignore Null Shapes
+                if filename['pofname']=="WA":
+                    if element['properties']['ftCode']=="5100":
+                        continue
                 # Set "Property" member
                 if 'class' in filename:
                     gjWriter.setProperty('class' ,filename['class'])
@@ -58,15 +63,12 @@ for layer in layers:
                     gjWriter.setTippecanoe('maxzoom' ,filename['maxzoom'])
                 # Set "Geometry" member
                 if 'attr' in filename:
-                    # Attribute label (only polygon and multipolygon are supported)
+                    # Attribute 
                     if element['geometry']['type']=='Point':
                         # Get attribute name and set "Property" member
                         gjWriter.setProperty('name' ,element['properties'][filename['attr']])
-                        # Set "Geometry" member
-                        gjWriter.setGeometry(element['geometry'])
-                else:
-                    # Write "Geometry" member(Other than attribute label)
-                    gjWriter.setGeometry(element['geometry'])
+                # Write "Geometry" member(Other than attribute label)
+                gjWriter.setGeometry(element['geometry'])
                 # Write "Geometry" member
                 gjWriter.Write()            
             # Close Shapefile

@@ -1,6 +1,6 @@
 version: 0.91
-#shapedir: /Users/takamotokeiji/data/数値地図
-shapedir: ./shape
+shapedir: /Users/takamotokeiji/data/数値地図/200000
+#shapedir: ./shape
 outputfile: ./shp2geojson.json
 
 layers:
@@ -9,27 +9,27 @@ layers:
     - pofname: Anno         # 1.注記
       class: commercial
       attr: knj
-  - layer: landuse1
-    file:
-    - pofname: BldA         # 2.建築物
-      class: commercial
-  - layer: landuse2
-    file:
-    - pofname: RdCL         # 3.道路中心
-      class: commercial
-  - layer: landuse3
-    file:
-    - pofname: RvrCL        # 4.河川中心
-      class: commercial
-  - layer: landuse4
-    file:
-    - pofname: TrfSbl       # 5.道路施設番号
-      class: commercial
-  - layer: landuse5
-    file:
-    - pofname: WA           # 6.水域
-      class: commercial
-  - layer: landuse6
-    file:
-    - pofname: WfArea       # 7.滝
-      class: commercial
+  # - layer: landuse1
+  #   file:
+  #   - pofname: BldA         # 2.建築物
+  #     class: commercial
+  # - layer: landuse2
+  #   file:
+  #   - pofname: RdCL         # 3.道路中心
+  #     class: commercial
+  # - layer: landuse3
+  #   file:
+  #   - pofname: RvrCL        # 4.河川中心
+  #     class: commercial
+  # - layer: landuse4
+  #   file:
+  #   - pofname: TrfSbl       # 5.道路施設番号
+  #     class: commercial
+  # - layer: landuse5
+  #   file:
+  #   - pofname: WA           # 6.水域
+  #     class: commercial
+  # - layer: landuse6
+  #   file:
+  #   - pofname: WfArea       # 7.滝
+  #     class: commercial
