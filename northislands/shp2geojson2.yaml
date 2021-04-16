@@ -1,6 +1,6 @@
 version: 0.91
 shapedir: /Users/takamotokeiji/data/数値地図/200000
-#shapedir: ./shape
+niarea: ./niarea/niarea.shp
 outputfile: ./shp2geojson.json
 
 layers:

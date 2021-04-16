@@ -4,7 +4,7 @@ Convert ESRI Shapefile to GeoJSON.
 import yaml
 import fiona
 import datetime as dt
-from shapely.geometry import shape,Polygon
+from shapely.geometry import shape ,Point ,Polygon
 from shapely.ops import polylabel
 import json
 from GJWriter import GJWriter
@@ -21,6 +21,12 @@ gjWriter = GJWriter(config['outputfile'])
 # Get basic information from yaml
 shapedir = config['shapedir']
 layers = config['layers']
+
+# Open the niarea shapefile and get a polygon
+niarea = fiona.open(config['niarea'])
+for element in niarea:
+    niareapgn = Polygon(element['geometry']['coordinates'][0])
+niarea.close()
 
 # Get layer information
 for layer in layers:
@@ -40,7 +46,10 @@ for layer in layers:
                 # Ignore Null Shapes
                 if element['geometry']==None:
                     continue
-                # Ignore Null Shapes
+                # 
+                if not niareapgn.contains(Point(element['geometry']['coordinates'])):
+                    continue
+                # Ignore Ocean(ftCode=5100)
                 if filename['pofname']=="WA":
                     if element['properties']['ftCode']=="5100":
                         continue
