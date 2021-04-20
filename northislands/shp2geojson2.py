@@ -53,23 +53,48 @@ for layer in layers:
                 if filename['pofname']=="WA":
                     if element['properties']['ftCode']=="5100":
                         continue
+                # Ignore YOMIGANA(Fixed #54)
+                if element['properties']['annoCtg'].startswith("その他"):
+                    continue
+
+                # print( element['properties']['ftCode'] + "," + element['properties']['annoCtg'])
+
                 # Set "Property" member
-                if 'class' in filename:
-                    gjWriter.setProperty('class' ,filename['class'])
-                if 'subclass' in filename:
-                    gjWriter.setProperty('subclass' ,filename['subclass'])
-                if 'admin_level' in filename:
-                    gjWriter.setProperty('admin_level' ,filename['admin_level'])
-                if 'name' in filename:
-                    if element['properties'][filename['name']]!=None:
-                        # Set river name to property
-                        gjWriter.setProperty('name' ,element['properties'][filename['name']])
-                # Set "Tippecanoe" member
-                gjWriter.setTippecanoe('layer' ,layer['layer'])
-                if 'minzoom' in filename:
-                    gjWriter.setTippecanoe('minzoom' ,filename['minzoom'])
-                if 'maxzoom' in filename:
-                    gjWriter.setTippecanoe('maxzoom' ,filename['maxzoom'])
+                if element['properties']['annoCtg'].startswith("海域"):
+                    # Set "Property" member
+                    gjWriter.setProperty('class' ,'ocean')
+                    # Set "Tippecanoe" member
+                    gjWriter.setTippecanoe('layer' ,'water_name')
+                    gjWriter.setTippecanoe('minzoom' ,0)
+                    gjWriter.setTippecanoe('maxzoom' ,9)
+                elif element['properties']['annoCtg'].startswith("山地") or element['properties']['annoCtg'].startswith("行政") or element['properties']['annoCtg'].startswith("土地"):
+                    # Set "Property" member
+                    gjWriter.setProperty('class' ,'town')
+                    # Set "Tippecanoe" member
+                    gjWriter.setTippecanoe('layer' ,'place')
+                    gjWriter.setTippecanoe('minzoom' ,3)
+                    gjWriter.setTippecanoe('maxzoom' ,9)
+                elif element['properties']['annoCtg'].startswith("居住") or element['properties']['annoCtg'].startswith("建物"):
+                    # Set "Property" member
+                    gjWriter.setProperty('class' ,'city')
+                    # Set "Tippecanoe" member
+                    gjWriter.setTippecanoe('layer' ,'place')
+                    gjWriter.setTippecanoe('minzoom' ,7)
+                    gjWriter.setTippecanoe('maxzoom' ,9)
+                elif element['properties']['annoCtg'].startswith("河川"):
+                    # Set "Property" member
+                    gjWriter.setTippecanoe('layer' ,'water_name')
+                    # Set "Tippecanoe" member
+                    gjWriter.setProperty('class' ,'other')
+                    gjWriter.setTippecanoe('minzoom' ,2)
+                    gjWriter.setTippecanoe('maxzoom' ,9)
+                else:
+                    # Set "Property" member(Fixed #55)
+                    gjWriter.setTippecanoe('layer' ,'place')
+                    # Set "Tippecanoe" member
+                    gjWriter.setProperty('class' ,'village')
+                    gjWriter.setTippecanoe('minzoom' ,3)
+                    gjWriter.setTippecanoe('maxzoom' ,9)
                 # Set "Geometry" member
                 if 'attr' in filename:
                     # Attribute 

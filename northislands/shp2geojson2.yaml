@@ -7,7 +7,6 @@ layers:
   - layer: landuse
     file:
     - pofname: Anno         # 1.注記
-      class: commercial
       attr: knj
   # - layer: landuse1
   #   file:
