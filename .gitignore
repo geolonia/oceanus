@@ -1,9 +1,7 @@
 
 .DS_Store
-shp2geojson.json
 __pycache__
 /*.mbtiles
 /data
 /test
 /japan-bl/*.xml
-/japan-bl/*.json
