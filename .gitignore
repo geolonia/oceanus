@@ -4,4 +4,3 @@ __pycache__
 /*.mbtiles
 /data
 /test
-/japan-bl/*.xml

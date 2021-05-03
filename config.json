@@ -13,7 +13,7 @@
     },
     "data": {
       "oceanus": {
-        "mbtiles": "oceanus2.mbtiles"
+        "mbtiles": "oceanus.mbtiles"
       }
     }
   }

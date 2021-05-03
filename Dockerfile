@@ -14,7 +14,8 @@ RUN apt-get update && \
     zlib1g-dev \
     libsqlite3-dev \
     unzip \
-    gdal-bin
+    gdal-bin \
+    libgdal-dev
 
 RUN git clone git://github.com/mapbox/mbutil.git && \
     cd mbutil && \
@@ -29,6 +30,7 @@ RUN git clone https://github.com/mapbox/tippecanoe.git && \
 RUN apt-get install -y python3 \
     python3-pip
 
+#ENV GDAL_VERSION 2.2
 
 RUN pip3 install pyyaml \
                  fiona \
