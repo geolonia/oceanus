@@ -1,6 +1,6 @@
 version: 0.9
 basedir: /data/
-outputfile: /app/oceanus.json
+outputfile: /data/oceanus.json
 japanarea: japan-area/japanarea.shp
 simplifyparam: 0.02
 
