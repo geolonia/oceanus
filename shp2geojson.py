@@ -34,7 +34,7 @@ for layer in layers:
 
         # Create replace dictionary
         if 'replacecsv' in filename:
-            with open(basedir+filename['replacecsv'], encoding='utf-8-sig') as fd:
+            with open(basedir+filename['replacecsv'], encoding='utf-8') as fd:
                 dr = csv.reader(fd)
                 citydict={}
                 for r in dr:
