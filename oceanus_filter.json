@@ -1,0 +1,12 @@
+{
+  "oc-label": [
+    "any",
+    [ "all", [ ">=", "$zoom", 4 ], [ "==", "class", "pref" ] ],
+    [ "all", [ ">=", "$zoom", 0 ], [ "==", "class", "country" ] ],
+    [ "all", [ ">=", "$zoom", 6 ], [ "==", "class", "town" ] ]
+  ],
+  "oc-landuse": [
+    "any",
+    [ "all", [ ">=", "$zoom", 2 ], [ "==", "class", "commercial" ] ]
+  ]
+}

@@ -1,106 +1,159 @@
 version: 0.9
 basedir: /data/
-outputfile: /data/shp2geojson.json
+outputfile: ./oceanus.json
+japanarea: land/japanarea.shp
+simplifyparam: 0.02
 
 layers:
-  - layer: landuse
+
+  - layer: oc-landuse
     file:
-    - fname: 50m_cultural/ne_50m_urban_areas.shp
+    - fname: naturalearth/50m_cultural/ne_50m_urban_areas.shp
       class: commercial
-      minzoom: 4
-      maxzoom: 4
-    - fname: 10m_cultural/ne_10m_urban_areas.shp
-      class: commercial
-      minzoom: 5
-      maxzoom: 7
+      jflag: true
 
-  - layer: water
+  - layer: oc-water
     file:
-    - fname: 110m_physical/ne_110m_ocean.shp
-      class: ocean
-      minzoom: 0
-      maxzoom: 1
-    - fname: 50m_physical/ne_50m_ocean.shp
-      class: ocean
-      minzoom: 2
-      maxzoom: 4
-    - fname: 10m_physical/ne_10m_ocean.shp
-      class: ocean
-      minzoom: 5
-      maxzoom: 7
-    - fname: 110m_physical/ne_110m_lakes.shp
+    - fname: naturalearth/10m_physical/ne_10m_lakes.shp
       class: lakes
-      minzoom: 0
-      maxzoom: 1
-    - fname: 50m_physical/ne_50m_lakes.shp
-      class: lakes
-      minzoom: 2
-      maxzoom: 4
-    - fname: 10m_physical/ne_10m_lakes.shp
-      class: lakes
-      minzoom: 5
-      maxzoom: 7
+      jflag: true
+      name: name_ja
+    - fname: naturalearth/10m_physical/ne_10m_bathymetry_A_10000.shp
+      class: ocean
+      subclass: 10000
+    - fname: naturalearth/10m_physical/ne_10m_bathymetry_B_9000.shp
+      class: ocean
+      subclass: 9000
+    - fname: naturalearth/10m_physical/ne_10m_bathymetry_C_8000.shp
+      class: ocean
+      subclass: 8000
+    - fname: naturalearth/10m_physical/ne_10m_bathymetry_D_7000.shp
+      class: ocean
+      subclass: 7000
+    - fname: naturalearth/10m_physical/ne_10m_bathymetry_E_6000.shp
+      class: ocean
+      subclass: 6000
+    - fname: naturalearth/10m_physical/ne_10m_bathymetry_F_5000.shp
+      class: ocean
+      subclass: 5000
+    - fname: naturalearth/10m_physical/ne_10m_bathymetry_G_4000.shp
+      class: ocean
+      subclass: 4000
+    - fname: naturalearth/10m_physical/ne_10m_bathymetry_H_3000.shp
+      class: ocean
+      subclass: 3000
+    - fname: naturalearth/10m_physical/ne_10m_bathymetry_I_2000.shp
+      class: ocean
+      subclass: 2000
+    - fname: naturalearth/10m_physical/ne_10m_bathymetry_J_1000.shp
+      class: ocean
+      subclass: 1000
+    - fname: naturalearth/10m_physical/ne_10m_bathymetry_K_200.shp
+      class: ocean
+      subclass: 200
+    - fname: naturalearth/10m_physical/ne_10m_ocean.shp
+      class: ocean
+      subclass: 0
 
-  - layer: water_name
+  - layer: oc-water_name
     file:
-    - fname: 110m_physical/ne_110m_geography_marine_polys.shp
+    - fname: naturalearth/10m_physical/ne_10m_geography_marine_polys.shp
       class: ocean
       attr: name_ja
+
+  - layer: oc-waterway
+    file:
+    - fname: naturalearth/10m_physical/ne_10m_rivers_lake_centerlines.shp
+      class: river
+      jflag: true
+      name: name_ja
+
+  - layer: oc-boundary
+    file:
+    - fname: naturalearth/10m_cultural/ne_10m_admin_0_boundary_lines_land.shp
+      admin_level: 0
+#      condition: featurecla=International boundary (verify)/Disputed (please verify)/Indefinite (please verify)/Indeterminant frontier/Overlay limit/Lease limit/Line of control (please verify)
+      condition: featurecla=International boundary (verify)/Disputed (please verify)/Indefinite (please verify)/Indeterminant frontier/Overlay limit
+      jflag: true
+    - fname: naturalearth/10m_cultural/ne_10m_admin_1_states_provinces_lines.shp
+      admin_level: 1
+      jflag: erase
+
+  - layer: oc-label
+    file:
+    - fname: naturalearth/110m_cultural/ne_110m_admin_0_countries.shp
+      class: country
       minzoom: 0
-      maxzoom: 1
-    - fname: 50m_physical/ne_50m_geography_marine_polys.shp
-      class: ocean
-      attr: name_ja
-      minzoom: 2
-      maxzoom: 4
-    - fname: 10m_physical/ne_10m_geography_marine_polys.shp
-      class: ocean
-      attr: name_ja
-      minzoom: 5
-      maxzoom: 7
-
-  - layer: waterway
-    file:
-    - fname: 110m_physical/ne_110m_rivers_lake_centerlines.shp
-      class: river
-      name: name_ja
-      minzoom: 3
-      maxzoom: 3
-    - fname: 50m_physical/ne_50m_rivers_lake_centerlines.shp
-      class: river
-      name: name_ja
-      minzoom: 4
-      maxzoom: 5
-    - fname: 10m_physical/ne_10m_rivers_lake_centerlines.shp
-      class: river
-      name: name_ja
-      minzoom: 6
-      maxzoom: 7
-
-  - layer: boundary
-    file:
-    - fname: 110m_cultural/ne_110m_admin_0_boundary_lines_land.shp
-      admin_level: 2
-      minzoom: 0
-      maxzoom: 0
-    - fname: 10m_cultural/ne_10m_admin_0_boundary_lines_land.shp
-      admin_level: 2
-      minzoom: 1
-      maxzoom: 7
-    - fname: 10m_cultural/ne_10m_admin_1_states_provinces_lines.shp
-      admin_level: 4
-      minzoom: 5
-      maxzoom: 7
-
-  - layer: place
-    file:
-    - fname: 110m_cultural/ne_110m_admin_0_countries.shp
-      class: town
+      maxzoom: 8
       attr: NAME_JA
+    - fname: naturalearth/10m_cultural/ne_10m_admin_1_states_provinces.shp
+      class: pref
       minzoom: 0
-      maxzoom: 6
-    - fname: 10m_cultural/ne_10m_admin_1_states_provinces.shp
-      class: town
+      maxzoom: 8
       attr: name_ja
-      minzoom: 5
-      maxzoom: 7
+      jflag: erase
+    - fname: naturalearth/10m_cultural/ne_10m_populated_places.shp
+      minzoom: 0
+      maxzoom: 8
+      class: town
+      jflag: true
+      replacecsv: pref-capital/replace.csv
+      name: name_ja
+
+  - layer: oc-road
+    file:
+    - fname: naturalearth/10m_cultural/ne_10m_roads.shp
+      class: highway
+      scalerank: 4
+      name: name
+      jflag: true
+
+  - layer: oc-port
+    file:
+    - fname: naturalearth/10m_cultural/ne_10m_ports.shp
+      class: harbor
+      scalerank: 5
+      jflag: true
+
+  - layer: oc-airport
+    file:
+    - fname: naturalearth/10m_cultural/ne_10m_airports.shp
+      class: airport
+      scalerank: 4
+      name: name_ja
+      jflag: true
+
+  - layer: oc-forest
+    file:
+    - fname: japan-forest/forest.shp
+      class: forest
+    - fname: japan-forest/japannt_forest.shp
+      class: forest
+
+  - layer: oc-glacier
+    file:
+    - fname: naturalearth/50m_physical/ne_50m_glaciated_areas.shp
+      class: glacier
+
+  - layer: oc-boundary
+    file:
+    - fname: japan-bl/japan-bl.shp
+      admin_level: 0
+
+  - layer: nt-label
+    file:
+    - fname: japan-nt/japan-nt-name.shp
+      class: label
+      subclass: "21"
+      name: name
+
+  - layer: oc-label
+    file:
+    - fname: pref-capital/add.csv
+      filetype: csv
+      minzoom: 0
+      maxzoom: 8
+      class: town
+      jflag: true
+      pref-capital: true
+      name: name_ja
