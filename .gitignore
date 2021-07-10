@@ -2,7 +2,8 @@
 .DS_Store
 __pycache__
 /*.mbtiles
-/data/naturaleartn
+/data/naturalearth
+/data/oceanus.*
 /test
 .vscode
 /old

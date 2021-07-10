@@ -44,16 +44,16 @@ tippecanoe \
   -P -z7 \
   -f \
   --low-detail=10 \
-  --feature-filter-file=oceanus_filter.json \
+  --feature-filter-file=/app/oceanus_filter.json \
   --coalesce --reorder \
   --coalesce-densest-as-needed --coalesce-smallest-as-needed \
   --detect-shared-borders \
   --simplify-only-low-zooms \
   --maximum-tile-bytes=400000 \
   -n oceanus \
-  -o ./oceanus.mbtiles \
-  ./oceanus.json
+  -o /data/oceanus.mbtiles \
+  /data/oceanus.json
 
-sqlite3 oceanus.mbtiles \
+sqlite3 /data/oceanus.mbtiles \
   "update metadata set value = '2.0.0+${GEOJSON_HASH}' where name = 'version'" \
   "delete from metadata where name in ('generator', 'generator_options')"

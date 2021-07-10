@@ -10,7 +10,7 @@ from shapely.ops import polylabel
 from GJWriter import GJWriter
 
 # Open setting file.
-with open('./shp2geojson.yaml' ,'r') as yml:
+with open('/app/shp2geojson.yaml' ,'r') as yml:
     # with open('./shp2geojson.yaml' ,'r') as yml:
     config = yaml.load(yml, Loader=yaml.SafeLoader)
 

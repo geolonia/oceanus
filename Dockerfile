@@ -15,7 +15,8 @@ RUN apt-get update && \
     libsqlite3-dev \
     unzip \
     gdal-bin \
-    libgdal-dev
+    libgdal-dev \
+    sqlite3
 
 RUN git clone git://github.com/mapbox/mbutil.git && \
     cd mbutil && \
