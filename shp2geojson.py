@@ -44,7 +44,7 @@ for layer in layers:
             replacecsv = False
 
         # Open the shapefile
-        elements = fiona.open(basedir+filename['fname'])
+        elements = fiona.open(basedir+filename['fname'],encoding='utf-8')
 
         # Get property filter condition
         if 'condition' in filename:
