@@ -27,9 +27,9 @@
   <div class="mapbox-attribution-container">
     <a href="https://www.naturalearthdata.com/downloads/">出典 Natural Earth</a>
   </div>
-<script src="https://api.geolonia.com/dev/embed?geolonia-api-key=YOUR-API-KEY"></script>
+<script src="https://cdn.geolonia.com/dev/embed?geolonia-api-key=YOUR-API-KEY"></script>
  <script>
-  var map = new mapboxgl.Map({
+  var map = new window.geolonia.Map({
     container: '#map',
     style: "https://labo.takamoto.biz/oceanus/styles/oceanus/style.json",
     zoom: 1.5,
