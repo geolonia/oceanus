@@ -1,8 +1,0 @@
-{"type":"FeatureCollection","features": [
-	{"type":"Feature","geometry":{"type":"LineString","coordinates":[[155.6304, 51.4154], [157.2002, 50.5155]]},"tippecanoe":{"layer":"boundary","minzoom":0,"maxzoom":7},"properties":{"admin_level":3}},
-	{"type":"Feature","geometry":{"type":"LineString","coordinates":[[149.0767, 45.7869], [149.2693, 45.2897]]},"tippecanoe":{"layer":"boundary","minzoom":0,"maxzoom":7},"properties":{"admin_level":3}},
-	{"type":"Feature","geometry":{"type":"LineString","coordinates":[[141.6092, 45.6369], [142.5737, 45.7184]]},"tippecanoe":{"layer":"boundary","minzoom":0,"maxzoom":7},"properties":{"admin_level":3}},
-	{"type":"Feature","geometry":{"type":"LineString","coordinates":[[131.2857, 37.0956], [131.6135, 37.8165]]},"tippecanoe":{"layer":"boundary","minzoom":0,"maxzoom":7},"properties":{"admin_level":3}},
-	{"type":"Feature","geometry":{"type":"LineString","coordinates":[[128.8373, 34.3343], [129.4419, 34.9847]]},"tippecanoe":{"layer":"boundary","minzoom":0,"maxzoom":7},"properties":{"admin_level":3}},
-	{"type":"Feature","geometry":{"type":"LineString","coordinates":[[122.6739, 23.2698], [122.7364, 26.0214]]},"tippecanoe":{"layer":"boundary","minzoom":0,"maxzoom":7},"properties":{"admin_level":3}}
-]}

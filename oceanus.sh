@@ -26,7 +26,5 @@ done
 
 echo "Building Oceanus Docker Image.Tag name is geolonia/oceanus."
 docker build -t geolonia/oceanus .
-cp ./shp2geojson.yaml $DIR
-cp ./japan-bl/japan-bl.json $DIR
-docker run -it --rm --name oceanus -v $DIR:/data geolonia/oceanus /app/ne2mbtiles
 echo "docker run -it --rm --name oceanus -v ${DIR}:/data geolonia/oceanus /app/ne2mbtiles"
+docker run -it --rm --name oceanus -v $DIR:/data geolonia/oceanus /app/ne2mbtiles

@@ -38,8 +38,5 @@ if [ "$(docker container ls -a -q -f name=${CONTAINER_NAME})" ]; then
     echo "Remove container ${CONTAINER_NAME}."
     docker container rm $CONTAINER_NAME
 fi
-cp ./config.json $DIR
-mkdir $DIR/styles
-cp ./style.json $DIR
 docker run -d -it --name $CONTAINER_NAME -v $DIR:/data -p $PORTNO:8080 maptiler/tileserver-gl -c /data/config.json
 echo "docker run -d -it --name ${CONTAINER_NAME} -v ${DIR}:/data -p ${PORTNO}:8080 maptiler/tileserver-gl -c /data/config.json"
